@@ -1,0 +1,6 @@
+Length = int(700)
+Velocity = int(90)
+Hours = int(Length//Velocity)
+Minutes = int(round((Length%Velocity)/Velocity * 60))
+Driving_time= str(Hours) + str(" год ") + str(Minutes) + str(" хв ")
+print("Транспортний засіб доїде за:", str(Driving_time))

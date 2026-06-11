@@ -1,0 +1,5 @@
+my_list = list(map(int, input("Введіть список через пробіл: ").split()))
+res1 = min(my_list)
+res2 = max(my_list)
+res3 = sum(my_list)/len(my_list)
+print(res1, res2, res3)
