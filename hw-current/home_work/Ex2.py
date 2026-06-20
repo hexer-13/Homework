@@ -1,4 +1,4 @@
-# Створіть клас, який описує відгук до книги. Додайте до класу книги поле – список відгуків.
+ # Створіть клас, який описує відгук до книги. Додайте до класу книги поле – список відгуків.
 # Зробіть так, щоб при виведенні книги на екран за допомогою функції print також виводилися відгуки до неї.
 
 class Book:
@@ -15,6 +15,9 @@ class Book:
     def __repr__(self):
         return f'Book(name={self.name!r}, year={self.year!r}, genre={self.genre!r}, reviews={self.reviews})'
 
+    def add_review(self, review):
+        self.reviews.append(review)
+
 
 class Review:
     def __init__(self, user_name, rate, review):
@@ -29,12 +32,11 @@ class Review:
         return f'{self.user_name}, {self.rate}, {self.review}'
 
 
-def add_review(book, review):
-    book.reviews.append(review)
+
 
 
 Book1 = Book('Author1', 'Booktitle1', 2000, "Horror")
 Review1 = Review('User1', 1, "review1")
-add_review(Book1, Review1)
+Book1.add_review(Review1)
 print(Book1)
 print(repr(Book1))
