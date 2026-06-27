@@ -51,7 +51,7 @@ def count_product_amount_by_sellers(products_in,seller_in):
             res_list.append(str(product))
             if product.price > max_cost:
                 max_cost = product.price
-        elif product.seller != seller_in and product == products_in[-1] and res_list == []:
+        elif product == products_in[-1] and res_list == []:
             return "Нема продавця з таким іменем"
     print(f"Seller: {seller_in}, quantity of products: {count}, max cost: {max_cost}, products info: {res_list}")
     return count, res_list, max_cost
