@@ -1,10 +1,10 @@
 from Class import *
 
-comp1 = Computer("name1",50,5,100,1000)
-comp2 = Computer("name2",100,10,200,2000)
-comp3 = Computer("name3",150,15,300,3000)
-comp4 = Computer("name4",200,20,400,4000)
-comp5 = Computer("name5",200,25,500,5000)
-comp6 = Computer("name6",200,30,500,5000)
+item1 = Product("Product 1",1,1000,2001,"Guy1")
+item2 = Product("Product 2",2,2000,2002,"Guy2")
+item3 = Product("Product 3",3,3000,2003,"Guy3")
+item4 = Product("Product 4",4,4000,2004,"Guy4")
+item5 = Product("Product 5",5,5000,2005,"Guy5")
+item6 = Product("Product 6",6,6000,2006,"Guy6")
 
-computer_list = [comp1,comp2,comp3,comp4,comp5,comp6]
+items_list = [item1,item2,item3,item4,item5,item6]

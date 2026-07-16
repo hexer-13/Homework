@@ -1,9 +1,6 @@
-from functions import *
+from Functions import *
 from Objects import *
 
-x = ram_more_than(computer_list,10)
+
+x = most_expensive(items_list)
 print(x)
-print_info(x)
-save_info(x)
-print(load_info())
-print_info(load_info())
