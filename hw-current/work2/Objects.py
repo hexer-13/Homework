@@ -1,10 +1,10 @@
 from Class import *
 
-item1 = Product("Product 1",1,1000,2001,"Guy1")
-item2 = Product("Product 2",2,2000,2002,"Guy2")
-item3 = Product("Product 3",3,3000,2003,"Guy3")
-item4 = Product("Product 4",4,4000,2004,"Guy4")
-item5 = Product("Product 5",5,5000,2005,"Guy5")
-item6 = Product("Product 6",6,6000,2006,"Guy6")
+car1 = Car("Toyota", "Manufacturer1", "Type1", 2001,date(2004,1,1))
+car2 = Car("Brand2", "Manufacturer2", "Type2", 2002,date(2005,2,2))
+car3 = Car("Toyota", "Manufacturer3", "Type3", 2003,date(2006,3,3))
+car4 = Car("Toyota","Manufacturer4", "Type4", 2004,date(2007,4,4))
+car5 = Car("Brand2", "Manufacturer5", "Type5", 2005,date(2008,5,5))
+car6 = Car("Toyota", "Manufacturer6", "Type6", 2006,date(2009,6,6))
 
-items_list = [item1,item2,item3,item4,item5,item6]
+cars_list = [car1,car2,car3,car4,car5]

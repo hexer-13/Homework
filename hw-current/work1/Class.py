@@ -1,49 +1,61 @@
 # Прізвище
-# Рік народження
+# Ім'я
+# По батькові
 # Посада
 # Зарплата
-# Освіта
-# Визначити кількість працівників, старших за 60 років, і надрукувати всі відомості про них.
+# Дата народження
+# Вивести відомості про працівників, у яких зарплата вища за середню і вік менше 30-ти років.
+from datetime import date
+
 
 class Worker:
-    def __init__(self, surname, year_of_birth, position, salary, education):
+    def __init__(self,surname,name,middle_name,position,salary,date_of_birth):
         self.__surname = self.__validate_surname(surname)
-        self.__year_of_birth = self.__validate_year_of_birth(year_of_birth)
+        self.__name = self.__validate_name(name)
+        self.__middle_name = self.__validate_middle_name(middle_name)
         self.__position = self.__validate_position(position)
         self.__salary = self.__validate_salary(salary)
-        self.__education = self.__validate_education(education)
+        self.__date_of_birth = self.__validate_date_of_birth(date_of_birth)
 
-    def __validate_surname(self,value):
-        if not isinstance(value, str) or len(value) < 2:
-            raise ValueError("Некоректне прізвище")
+    def __validate_surname(self, value):
+        if not isinstance(value, str):
+            raise ValueError("Surname must be a string")
         return value
 
-    def __validate_year_of_birth(self,value):
-        if not isinstance(value, int) or value > 2026:
-            raise ValueError("Вік не повинен бути від'ємним")
+    def __validate_name(self, value):
+        if not isinstance(value, str):
+            raise ValueError("Name must be a string")
         return value
 
-    def __validate_position(self,value):
-        if not isinstance(value, str) or len(value) < 2:
-            raise ValueError("Некоректна посада")
+    def __validate_middle_name(self, value):
+        if not isinstance(value, str):
+            raise ValueError("Middle name must be a string")
         return value
 
-    def __validate_salary(self,value):
-        if not isinstance(value, int) or value <= 0:
-            raise ValueError("Зарплата не може бути від'ємною")
+    def __validate_position(self, value):
+        if not isinstance(value, str):
+            raise ValueError("Position must be an string")
         return value
 
-    def __validate_education(self,value):
-        if not isinstance(value, str) or len(value) < 2:
-            raise ValueError("Некоректна освіта")
+    def __validate_salary(self, value):
+        if not isinstance(value, (int,float)):
+            raise ValueError("Salary must be a number")
+        return value
+
+    def __validate_date_of_birth(self, value):
+        if not isinstance(value, date):
+            raise ValueError("Date must be a date")
         return value
 
     @property
     def surname(self):
         return self.__surname
     @property
-    def year_of_birth(self):
-        return self.__year_of_birth
+    def name(self):
+        return self.__name
+    @property
+    def middle_name(self):
+        return self.__middle_name
     @property
     def position(self):
         return self.__position
@@ -51,29 +63,27 @@ class Worker:
     def salary(self):
         return self.__salary
     @property
-    def education(self):
-        return self.__education
+    def date_of_birth(self):
+        return self.__date_of_birth
 
     @surname.setter
-    def surname(self, surname):
-        self.__surname = surname
-
-    @year_of_birth.setter
-    def year_of_birth(self, year_of_birth):
-        self.__year_of_birth = year_of_birth
-
+    def surname(self,value):
+        self.__surname = self.__validate_surname(value)
+    @name.setter
+    def name(self,value):
+        self.__name = self.__validate_name(value)
+    @middle_name.setter
+    def middle_name(self,value):
+        self.__middle_name = self.__validate_middle_name(value)
     @position.setter
-    def position(self, position):
-        self.__position = position
-
+    def position(self,value):
+        self.__position = self.__validate_position(value)
     @salary.setter
-    def salary(self, salary):
-        self.__salary = salary
-
-    @education.setter
-    def education(self, education):
-        self.__education = education
+    def salary(self,value):
+        self.__salary = self.__validate_salary(value)
+    @date_of_birth.setter
+    def date_of_birth(self,value):
+        self.__date_of_birth = self.__validate_date_of_birth(value)
 
     def __str__(self):
-        return f"|Surname:{self.__surname}|Year of birth:{self.year_of_birth}|Position:{self.__position}|Salary:{self.salary}|Education:{self.education}|"
-
+        return f"|{self.__surname} |{self.__name} |{self.__middle_name} |{self.position} |{self.salary} |{self.__date_of_birth}|"

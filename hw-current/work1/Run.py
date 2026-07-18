@@ -1,9 +1,13 @@
-from multiprocessing.connection import wait
-
 from Functions import *
+from Objects import *
 
-x = older_than_x(workers_list,60)
-print_2(x)
+x = average_salary(worker_list)
+y = salary_more_than_x(worker_list,x)
+a = older_than_x(worker_list,30)
+b = older_than_x(y,30)
 
-x = older_than_x(67,"AAA")
-print_2("AAA")
+print_2(y)
+input()
+print_2(a)
+input()
+print_2(b)

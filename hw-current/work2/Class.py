@@ -1,79 +1,80 @@
-# Назва
-# Кількостей
-# Ціна
-# Рік виготовлення
+# Марка автомобіля
 # Виробник
-# Визначити найдорожчий товар на складі та надрукувати всі відомості про нього.
+# Тип
+# Рік випуску
+# Дата реєстрації
+from datetime import date
 
-class Product:
-    def __init__(self,name,quantity,price,year,manufacturer):
-        self.__name = self.__validate_name(name)
-        self.__quantity = self.__validate_quantity(quantity)
-        self.__price = self.__validate_price(price)
-        self.__year = self.__validate_year(year)
+
+class Car:
+    def __init__(self ,brand ,manufacturer ,type ,year_of_manufacture ,date_of_registration):
+        self.__brand = self.__validate_brand(brand)
         self.__manufacturer = self.__validate_manufacturer(manufacturer)
+        self.__type = self.__validate_type(type)
+        self.__year_of_manufacture = self.__validate_year_of_manufacture(year_of_manufacture)
+        self.__date_of_registration = self.__validate_date_of_registration(date_of_registration)
 
-    def __validate_name(self,value):
+
+    @property
+    def brand(self):
+        return self.__brand
+    @property
+    def manufacturer(self):
+        return self.__manufacturer
+    @property
+    def type(self):
+        return self.__type
+    @property
+    def year_of_manufacture(self):
+        return self.__year_of_manufacture
+    @property
+    def date_of_registration(self):
+        return self.__date_of_registration
+
+    @brand.setter
+    def brand(self,value):
+        self.__brand = self.__validate_brand(value)
+
+    @manufacturer.setter
+    def manufacturer(self,value):
+        self.__manufacturer = self.__validate_manufacturer(value)
+
+    @type.setter
+    def type(self,value):
+        self.__type = self.__validate_type(value)
+
+    @year_of_manufacture.setter
+    def year_of_manufacture(self,value):
+        self.__year_of_manufacture = self.__validate_year_of_manufacture(value)
+
+    @date_of_registration.setter
+    def date_of_registration(self,value):
+        self.__date_of_registration = self.__validate_date_of_registration(value)
+
+    def __validate_brand(self,value):
         if not isinstance(value,str):
-            raise ValueError("Name must be a string")
-        return value
-
-    def __validate_quantity(self,value):
-        if not isinstance(value,(int,float)) or value < 0:
-            raise ValueError("Quantity must be a number, 0 or above")
-        return value
-
-    def __validate_price(self,value):
-        if not isinstance(value,(int,float)):
-            raise ValueError("Price must be a number")
-        return value
-
-    def __validate_year(self,value):
-        if not isinstance(value,(int,float)) and value > 2026:
-            raise ValueError("Year must be a number")
+            raise TypeError('Brand must be a string')
         return value
 
     def __validate_manufacturer(self,value):
         if not isinstance(value,str):
-            raise ValueError("Manufacturer must be a string")
+            raise TypeError('Manufacturer must be a string')
         return value
 
-    @property
-    def name(self):
-        return self.__name
-    @property
-    def quantity(self):
-        return self.__quantity
-    @property
-    def price(self):
-        return self.__price
-    @property
-    def year(self):
-        return self.__year
-    @property
-    def manufacturer(self):
-        return self.__manufacturer
+    def __validate_type(self,value):
+        if not isinstance(value,str):
+            raise TypeError('Type must be a string')
+        return value
 
-    @name.setter
-    def name(self,value):
-        self.__validate_name(value)
-        self.__name = value
-    @quantity.setter
-    def quantity(self,value):
-        self.__validate_quantity(value)
-        self.__quantity = value
-    @price.setter
-    def price(self,value):
-        self.__validate_price(value)
-        self.__price = value
-    @year.setter
-    def year(self,value):
-        self.__validate_year(value)
-        self.__year = value
-    @manufacturer.setter
-    def manufacturer(self,value):
-        self.__validate_manufacturer(value)
-        self.__manufacturer = value
+    def __validate_year_of_manufacture(self,value):
+        if not isinstance(value,(int,float)):
+            raise TypeError('Year of Manufacture must be a number')
+        return value
+
+    def __validate_date_of_registration(self,value):
+        if not isinstance(value,date):
+            raise TypeError('Date of Registration must be a date')
+        return value
 
     def __str__(self):
-        return f"|{self.__name}||{self.__quantity}||{self.__price}||{self.__year}||{self.__manufacturer}|"
+        return f"|{self.__brand} |{self.__manufacturer} |{self.__type} |{self.__year_of_manufacture} |{self.__date_of_registration}"

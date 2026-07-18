@@ -1,35 +1,49 @@
-from Objects import *
+from Class import *
+from datetime import date
 
-# Визначити кількість працівників, старших за 60 років, і надрукувати всі відомості про них.
+# Вивести відомості про працівників, у яких зарплата вища за середню і вік менше 30-ти років.
 
-def older_than_x(input_list,x):
-    if not isinstance(x, (int, float)) or not isinstance(input_list,list):
-        print("Input must be a list and a number")
-        return None
-    res_list = []
-    res = 0
+def average_salary(input_list):
+    average = 0
     try:
-        for element in input_list:
-            if (2026 - element.year_of_birth) > x:
-                res+=1
-                res_list.append(element)
-        if res == 0:
-            print ("Результату не знайдено")
-            return None
+        for item in input_list:
+            average += item.salary
     except Exception as e:
         print(e)
-    return [f"Found results: {res}", *res_list]
+    if len(input_list) > 0:
+        return average / len(input_list)
+
+
+def salary_more_than_x(input_list,x):
+    res_list = []
+    try:
+        for item in input_list:
+            if item.salary > x:
+                res_list.append(item)
+    except Exception as e:
+        print(e)
+    if res_list != []:
+        return res_list
+
+
+def older_than_x(input_list,x):
+    res_list = []
+    try:
+        for item in input_list:
+            if (2026 - item.date_of_birth.year) > x:
+                res_list.append(item)
+    except Exception as e:
+        print(e)
+    if res_list != []:
+        return res_list
 
 
 def print_2(input_list):
-    if not isinstance(input_list, list):
-        print("Input must be a list")
-        return None
     iter_list = iter(input_list)
     try:
-        for i in input_list:
-            print(next(iter_list))
+        for item in iter_list:
+            print(item)
+    except StopIteration:
+        pass
     except Exception as e:
         print(e)
-
-

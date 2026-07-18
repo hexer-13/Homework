@@ -1,16 +1,24 @@
-from Class import *
+from Objects import *
 
-# Визначити найдорожчий товар на складі та надрукувати всі відомості про нього.
+# Вивести відомості про машини марки «Toyota», зареєстровані до 2007-го року.
 
-def most_expensive(input_list):
-    if not isinstance(input_list,list):
-        print("Input must be a list")
-        return None
-    res = None
+def car_of_brand_registered_before(input_list,input_brand,year):
+    res_list = []
     try:
-        for i in input_list:
-            if res is None or i.price > res.price:
-                res = i
+        for item in input_list:
+            if item.brand == input_brand and item.date_of_registration.year < year:
+                res_list.append(item)
     except Exception as e:
         print(e)
-    return res
+        return None
+    return res_list
+
+def print_2(input_list):
+    iter_list = iter(input_list)
+    try:
+        while True:
+            print(next(iter_list))
+    except StopIteration:
+        return None
+    except Exception as e:
+        print(e)

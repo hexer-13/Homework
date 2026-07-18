@@ -1,6 +1,4 @@
 from Functions import *
-from Objects import *
 
-
-x = most_expensive(items_list)
-print(x)
+x = car_of_brand_registered_before(cars_list,"Toyota",2007)
+print_2(x)
